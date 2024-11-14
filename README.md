@@ -106,7 +106,7 @@ This role installs and configures the web server. Key variables:
 web_port: Port for the web server (default: 80)
 app_list: List of applications to install or remove
 
-### Database Role
+### Database Role 
 Installs and configures PostgreSQL with basic setup.
 
 ### Security Role
