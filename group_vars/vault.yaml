@@ -1,0 +1,6 @@
+vault_alert_password: !vault |
+      $ANSIBLE_VAULT;1.1;AES256
+      6162636465666768...
+smtp_password: !vault |
+      $ANSIBLE_VAULT;1.1;AES256
+      1234567890abcdef...

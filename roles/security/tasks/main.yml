@@ -1,0 +1,21 @@
+- name: Set system security policies
+  ansible.builtin.sysctl:
+    name: net.ipv4.ip_forward
+    value: 0
+    sysctl_set: yes
+    state: present
+
+- name: Configure firewall rules on Linux
+  ansible.builtin.iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: 22
+    jump: DROP
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+
+- name: Apply Windows security policy
+  ansible.windows.win_security_policy:
+    section: Account
+    option: PasswordComplexity
+    value: 1
+  when: ansible_os_family == 'Windows'

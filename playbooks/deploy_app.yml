@@ -1,0 +1,16 @@
+- name: Deploy application on Linux and Windows
+  hosts: all
+  tasks:
+    - name: Deploy application on Linux
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ custom_applications }}"
+      when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+
+    - name: Install Windows features
+      ansible.windows.win_feature:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      loop: "{{ windows_features }}"
+      when: ansible_os_family == 'Windows'

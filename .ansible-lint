@@ -1,0 +1,2 @@
+skip_list:
+  - '204'  # Ignore error codes as needed

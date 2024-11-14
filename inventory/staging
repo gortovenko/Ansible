@@ -1,0 +1,5 @@
+[linux_servers]
+host1 ansible_host=192.168.2.10 ansible_user=ubuntu
+
+[windows_servers]
+host2 ansible_host=192.168.2.20 ansible_user=Administrator ansible_connection=winrm ansible_winrm_transport=ntlm ansible_winrm_server_cert_validation=ignore

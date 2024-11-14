@@ -1,0 +1,19 @@
+- name: Ensure log directory exists
+  ansible.builtin.file:
+    path: "{{ log_directory }}"
+    state: directory
+    mode: '0755'
+
+- name: Configure rsyslog for Linux
+  ansible.builtin.copy:
+    src: files/rsyslog.conf
+    dest: /etc/rsyslog.conf
+  notify: Restart rsyslog
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+
+- name: Enable Windows Event Log
+  ansible.windows.win_service:
+    name: EventLog
+    start_mode: auto
+    state: started
+  when: ansible_os_family == 'Windows'

@@ -1,0 +1,5 @@
+windows_features:
+  - name: Web-Server
+    state: present
+  - name: Telnet-Client
+    state: present

@@ -1,0 +1,6 @@
+web_port: 80
+app_list:
+  - name: nginx
+    state: present
+  - name: httpd
+    state: absent

@@ -1,0 +1,15 @@
+- name: Apply infrastructure configurations
+  hosts: all
+  roles:
+    - role: webserver
+      tags: ['web', 'install']
+    - role: database
+      tags: ['db', 'install']
+    - role: monitoring
+      tags: ['monitoring', 'install']
+    - role: security
+      tags: ['security', 'configure']
+    - role: logging
+      tags: ['logging', 'configure']
+    - role: patching
+      tags: ['patching']

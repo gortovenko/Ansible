@@ -1,0 +1,17 @@
+- name: Install Prometheus
+  ansible.builtin.package:
+    name: prometheus
+    state: present
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+
+- name: Install Grafana on Linux
+  ansible.builtin.package:
+    name: grafana
+    state: present
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
+
+- name: Set up event logging
+  ansible.builtin.file:
+    path: "{{ log_directory }}"
+    state: directory
+    mode: '0755'

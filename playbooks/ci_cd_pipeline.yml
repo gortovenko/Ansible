@@ -1,0 +1,4 @@
+- name: Set up CI/CD pipeline
+  hosts: linux_servers
+  roles:
+    - role: ci_cd
